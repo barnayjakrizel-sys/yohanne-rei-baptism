@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Yohanne Rei's Baptismal Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f9ff;color:#334155;font-family:Quicksand,sans-serif}
+#intro{position:fixed;inset:0;z-index:5;background:linear-gradient(135deg,#dbeafe,#fce7f3);display:grid;place-items:center;text-align:center;cursor:pointer;transition:.8s}
+#intro.hide{opacity:0;visibility:hidden}
+.envelope{width:270px;height:180px;background:#fff;border:3px solid #bfdbfe;border-radius:18px;display:grid;place-items:center;margin:auto;box-shadow:0 15px 35px #64748b33}
+.seal{font-size:65px;animation:float 2s infinite}
+@keyframes float{50%{transform:translateY(-12px) rotate(7deg)}}
+@keyframes sparkle{50%{transform:translateY(-9px) rotate(20deg);opacity:.5}}
+.intro-title{font:700 28px 'Playfair Display';color:#1e3a8a;margin-top:20px}
+main{display:none;max-width:680px;margin:auto;background:white;box-shadow:0 0 30px #64748b22;overflow:hidden}
+main.show{display:block;animation:appear .8s}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.music{position:fixed;right:14px;top:14px;z-index:10;background:white;border:2px solid #93c5fd;color:#1e3a8a;border-radius:25px;padding:10px;font-weight:bold}
+header{text-align:center;padding:65px 18px 30px;background:linear-gradient(#eff6ff,#fff)}
+.badge{background:#dbeafe;color:#1e3a8a;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold}
+h1{font:700 43px 'Playfair Display';color:#1e3a8a;margin:17px 0 5px}
+.subtitle{color:#64748b}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:25px}
+.gallery img{width:100%;height:160px;object-fit:cover;border:4px solid #bfdbfe;border-radius:16px}
+.countdown{margin:20px;padding:20px;background:#f0fdf4;border:2px dashed #bbf7d0;border-radius:15px;text-align:center}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
+.unit{background:white;padding:12px 5px;border-radius:10px}
+.unit b{display:block;font-size:24px;color:#15803d}
+.unit small{font-size:10px;text-transform:uppercase}
+section{padding:25px 20px;border-bottom:1px solid #eee}
+h2{text-align:center;font:700 25px 'Playfair Display';color:#1e3a8a}
+.card{display:flex;gap:14px;padding:17px;margin:12px 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px}
+.ico{font-size:30px;background:#dbeafe;border-radius:12px;padding:12px;height:58px}
+.card h3{margin:0 0 5px;color:#1e3a8a}
+.card p{font-size:14px;line-height:1.6}
+.map{color:#2563eb;font-size:13px;font-weight:bold;text-decoration:none}
+.parents{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.parent{background:#f8fafc;border:1px solid #e2e8f0;border-radius:13px;padding:14px}
+.parent h3{color:#1e3a8a}
+.parent ol{padding-left:20px;font-size:13px;line-height:1.9;color:#475569}
+.message{margin:20px;padding:22px;background:linear-gradient(135deg,#eff6ff,#fdf2f8);border:1px solid #bfdbfe;border-radius:15px;text-align:center}
+.message h3{font:700 21px 'Playfair Display';color:#1e3a8a}
+.message p{font-size:14px;line-height:1.8;font-style:italic}
+.sign{font-weight:bold;color:#1e3a8a}
+.gifts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gift{display:flex;align-items:center;gap:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px}
+.gift span{font-size:27px}
+.gift h4{margin:0;color:#1e3a8a;font-size:13px}
+.gift p{font-size:11px;margin:3px 0;color:#64748b}
+.attire{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{text-align:center;background:#f8fafc;padding:15px 7px;border-radius:12px}
+.tile span{font-size:27px}
+.tile h4{color:#1e3a8a;margin:5px}
+.tile p{font-size:12px;color:#64748b}
+.rsvp{background:#eff6ff;padding:18px;border-radius:14px;text-align:center}
+.rsvp input{width:100%;padding:12px;margin:8px 0;border:1px solid #cbd5e1;border-radius:9px}
+.rsvp button{width:100%;padding:12px;background:#2563eb;color:white;border:0;border-radius:9px;font-weight:bold}
+footer{text-align:center;background:#1e293b;color:white;padding:25px;line-height:1.8}
+.float-heart{position:fixed;bottom:-30px;animation:rise 8s linear infinite;pointer-events:none;z-index:2}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@media(max-width:500px){.gallery img{height:105px}.parents{grid-template-columns:1fr}.attire{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<audio id="music" loop>
+<source src="https://actions.google.com/sounds/v1/ambiences/music_box_lullaby.ogg" type="audio/ogg">
+</audio>
+<button class="music" id="musicBtn" onclick="toggleMusic()">🔇 Play Music</button>
+
+<div id="intro" onclick="openInvite()">
+<div>
+<div class="envelope"><div class="seal">🧸💌</div></div>
+<div class="intro-title">YOU ARE INVITED!</div>
+<p>✨ Tap to open Baby Yohanne Rei's invitation ✨</p>
+</div>
+</div>
+
+<main id="content">
+<header>
+<div class="badge">✨ A SPECIAL DAY TO REMEMBER ✨</div>
+<h1>Yohanne Rei</h1>
+<p class="subtitle">Celebration of Holy Baptism</p>
+<p>With hearts full of love, we invite you to celebrate this special milestone with our little one.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=400&q=80" alt="Baby photo">
+<img src="https://images.unsplash.com/photo-1522748948888-723f47318a0c?auto=format&fit=crop&w=400&q=80" alt="Baby photo">
+<img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Baby photo">
+</div>
+</header>
+
+<div class="countdown">
+<strong>⏳ Countdown to Baby Yohanne's Baptism</strong>
+<div class="clock">
+<div class="unit"><b id="days">00</b><small>Days</small></div>
+<div class="unit"><b id="hours">00</b><small>Hours</small></div>
+<div class="unit"><b id="mins">00</b><small>Minutes</small></div>
+<div class="unit"><b id="secs">00</b><small>Seconds</small></div>
+</div>
+</div>
+
+<section>
+<h2>⛪ Ceremony & Reception</h2>
+<div class="card">
+<div class="ico">⛪</div>
+<div><h3>Church Ceremony</h3>
+<p><b>St. John Neumann Parish</b><br>Sicayab, Dipolog City<br>📅 December 5, 2026<br>🕠 5:30 AM<br><b>Please be at the church before 5:30 AM.</b></p>
+<a class="map" target="_blank" href="https://maps.google.com/?q=St+John+Neumann+Sicayab+Dipolog+City">📍 Open in Google Maps</a>
+</div></div>
+<div class="card">
+<div class="ico">🏡</div>
+<div><h3>Reception Venue</h3>
+<p><b>Barnayja's Residence</b><br>Blk 4 Lot 2, Rufina Heights, Dicayas, Dipolog City<br>🍽️ Follows right after the ceremony</p>
+<a class="map" target="_blank" href="https://maps.google.com/?q=Rufina+Heights+Dicayas+Dipolog+City">📍 Open in Google Maps</a>
+</div></div>
+</section>
+
+<section>
+<h2>👔 Attire Guide</h2>
+<div class="attire">
+<div class="tile"><span>👗</span><h4>Ladies</h4><p>Cocktail Dress / Pastel Attire</p></div>
+<div class="tile"><span>👔</span><h4>Gents</h4><p>Polo / Barong Tagalog</p></div>
+<div class="tile"><span>👖</span><h4>Pants</h4><p>Slacks or Clean Denim</p></div>
+</div>
+</section>
+
+<section>
+<h2>🌟 Our Dear Ninongs & Ninangs</h2>
+<div class="parents">
+<div class="parent"><h3>💙 Ninongs</h3><ol>
+<li>Michael Dave Jaugin</li>
+<li>Brian Dave Bayron</li>
+<li>Merlin John Gicoso</li>
+<li>McCartey Vidal</li>
+<li>JV Gallemit</li>
+<li>Fred John Caidic</li>
+<li>Jie Duhanglungsod</li>
+<li>Russel Dalaguan</li>
+<li>Joffe Baguinat</li>
+<li>Jacob Delegencia</li>
+</ol></div>
+<div class="parent"><h3>💗 Ninangs</h3><ol>
+<li>Jovy Lariba</li>
+<li>Elisa May Abrea</li>
+<li>Reahlyn Labadlabad</li>
+<li>Andrea Ompoy</li>
+<li>Adela Mongcopa</li>
+<li>Ruby Gail Romualdo</li>
+</ol></div>
+</div>
+</section>
+
+<div class="message">
+<h3>To Our Dear Ninongs and Ninangs</h3>
+<p>Thank you for accepting the special role of becoming Yohanne Rei's godparents. Your presence in his life will be a blessing. We hope you'll guide him with love, faith, wisdom, and prayers as he grows. We are truly grateful to have you as part of his journey.</p>
+<div class="sign">With love and gratitude,<br>Yohanne Rei & Family 🧸💙</div>
+</div>
+
+<div class="message">
+<h3>A Special Note</h3>
+<p>Thank you for being part of Baby Yohanne Rei's special day! We are so blessed to have you as part of his journey. May you always guide him with love, patience, faith, and prayers as he grows.</p>
+<div class="sign">With love,<br>Baby Yohanne Rei & Family 💙</div>
+</div>
+
+<section>
+<h2>🎁 Baby Yohanne's Gift Guide</h2>
+<p style="text-align:center;font-size:13px;line-height:1.7">Your presence is already the greatest gift. If you wish to give something for our little one, here are some ideas!</p>
+<div class="gifts">
+<div class="gift"><span>🍼</span><div><h4>Milk (Bonna)</h4><p>For little Yohanne</p></div></div>
+<div class="gift"><span>🧷</span><div><h4>Diapers</h4><p>Any comfortable brand</p></div></div>
+<div class="gift"><span>🧴</span><div><h4>Baby Toiletries</h4><p>Bath soap, lotion, powder</p></div></div>
+<div class="gift"><span>👕</span><div><h4>Baby Clothes</h4><p>Rompers & cute outfits</p></div></div>
+<div class="gift"><span>🧸</span><div><h4>Stuffed Toys</h4><p>Soft plushies & bears</p></div></div>
+<div class="gift"><span>🛏️</span><div><h4>Baby Blankets</h4><p>Soft cotton blankets</p></div></div>
+<div class="gift"><span>🛒</span><div><h4>Baby Essentials</h4><p>Wipes, bibs, towels</p></div></div>
+<div class="gift"><span>✉️</span><div><h4>Monetary Gift</h4><p>Optional love offering</p></div></div>
+</div>
+</section>
+
+<section>
+<h2>💌 RSVP</h2>
+<div class="rsvp">
+<p>Please let us know if you can join us!</p>
+<input id="guest" placeholder="Your name">
+<button onclick="rsvp()">Send RSVP</button>
+<p style="font-size:11px">Please message the family directly to confirm your attendance.</p>
+</div>
+</section>
+
+<footer>Thank you for celebrating with us!<br>With love, Baby Yohanne Rei & Family 🧸💙</footer>
+</main>
+
+<script>
+const eventDate = new Date("2026-12-05T05:30:00+08:00");
+
+function updateCountdown(){
+ const diff=eventDate-new Date();
+ if(diff<=0){
+  ["days","hours","mins","secs"].forEach(id=>document.getElementById(id).textContent="00");
+  return;
+ }
+ document.getElementById("days").textContent=Math.floor(diff/86400000);
+ document.getElementById("hours").textContent=Math.floor(diff%86400000/3600000);
+ document.getElementById("mins").textContent=Math.floor(diff%3600000/60000);
+ document.getElementById("secs").textContent=Math.floor(diff%60000/1000);
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+function openInvite(){
+ document.getElementById("intro").classList.add("hide");
+ document.getElementById("content").classList.add("show");
+}
+function toggleMusic(){
+ const a=document.getElementById("music");
+ const b=document.getElementById("musicBtn");
+ if(a.paused){
+  a.play().then(()=>b.textContent="🔊 Pause Music").catch(()=>b.textContent="🔇 Tap to Play Music");
+ }else{
+  a.pause();
+  b.textContent="🔇 Play Music";
+ }
+}
+function rsvp(){
+ const n=document.getElementById("guest").value.trim();
+ if(!n){alert("Please enter your name.");return;}
+ alert("Thank you, "+n+"! Please message the family directly to confirm.");
+}
+function hearts(){
+ const h=document.createElement("div");
+ h.className="float-heart";
+ h.textContent=["💙","💗","✨","🧸"][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=(6+Math.random()*5)+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),11000);
+}
+setInterval(hearts,1300);
+</script>
+</body>
+</html>
